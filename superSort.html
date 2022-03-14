@@ -1,5 +1,5 @@
-<h1>superSort Algorithm</h1><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><br><a href=".\index.html">(Psst: Click me to go to home!)</a><p>Enter your number. superSort checks to see if any number is less then the one its on, and if so switches them, and if not it freezes it.</p><br>
-<title>lowestSort</title>
+<h1>superSort Algorithm</h1><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><p>Enter your number. superSort checks to see if any number is less then the one its on, and if so switches them, and if not it freezes it.</p><br>
+<title>superSort</title>
 
 <input type=number id="a"></input>
 <br>
@@ -42,6 +42,7 @@
       sort = true
       f = 0
 			g = 0
+      h = 0
     }
     console.log("in function 1")
     lowestSort(n)
@@ -53,13 +54,13 @@
       sort = true
      	while (g<=n.length && sort==true) {
       console.log("in while loop")
-      if (l>n[g]&&g>f) {
+      if (l>n[g]&&g>=f) {
 			 [n[p],n[g]]=[n[g],n[p]]
        p = g
        console.log(g)
        sort = false
       } else {
-        f = i+1
+        f = i + 1
         console.log("f =", f)
       }
       g += 1
@@ -67,6 +68,7 @@
       g=0
       i+=1
       it+=1
+      h = 0
       if (i == 4) {
         i = 0
       }
