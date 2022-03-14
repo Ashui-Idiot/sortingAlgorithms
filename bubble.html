@@ -1,0 +1,61 @@
+<h1>bubbleSort Algorithm</h1>
+<a href=".\superSort.html">(Psst: Click me for superSort!)</a>
+<br><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a>
+<p>Enter your numbers below. Bubble sort takes two number going and which ever <br>one is smallest, switches it then does the same one to the right.</p><br>
+<title>bubbleSort</title>
+
+<input type=number id="a"></input>
+<br>
+<input type=number id="b"></input>
+<br>
+<input type=number id="c"></input>
+<br>
+<input type=number id="d"></input>
+<br>
+<input type=number id="e"></input>
+<br><br><button id="but">Press me to run 1 itteration</button>
+<p>Output: <span id="f">N/A</span></p>
+<p>Iterations: <span id="g">N/A</span></p>
+<script>
+      let n = [
+    1,2,3,4,5
+  ]
+  let i = 0
+  let it = 0
+  let l = 1000^100
+  let p = 0
+  let f = 0
+  let g = 0
+  let pr = 0
+  document.getElementById("but").addEventListener("click", function() {
+   stuff()
+})
+  function stuff() {
+    if (n[0]<=n[1]&&n[1]<=n[2]&&n[2]<=n[3]&&n[3]<=n[4]) {
+      n[0] = document.getElementById("a").value
+      n[1] = document.getElementById("b").value
+      n[2] = document.getElementById("c").value
+      n[3] = document.getElementById("d").value
+      n[4] = document.getElementById("e").value
+      it = 0
+      i = 0
+      l = 1000^100
+      p = 0
+      f = 0
+    }
+    sort(n)
+    console.log("button presses")
+  }
+  function sort(n) {
+      if (n[i]>n[i+1]) {
+        [n[i+1],n[i]] = [n[i],n[i+1]]
+      }
+      i+=1
+      it+=1
+      if (i == 4) {
+        i = 0
+      }
+    document.getElementById("f").innerHTML = n
+    document.getElementById("g").innerHTML = it
+  }
+</script>
