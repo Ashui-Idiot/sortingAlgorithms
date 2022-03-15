@@ -1,4 +1,4 @@
-<h1>dubbleSort Algorithm</h1><a href=".\superSort.html">(Psst: Click me for superSort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><br><a href=".\index.html">(Psst: Click me to go to home!)</a><p>Enter your numbers below. Dubble sort is like bubble sort, but if nothing happens,<br> it tries to sort the end.</p><br>
+<h1>dubbleSort Algorithm</h1><a href=".\superSort.html">(Psst: Click me for superSort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><p>Enter your numbers below. Dubble sort is like bubble sort, but if nothing happens,<br> it tries to sort the end.</p><br>
 <title>dubbleSort</title>
 
 <input type=number id="a"></input>
@@ -24,11 +24,11 @@
 })
   function stuff() {
     if (n[0]<=n[1]&&n[1]<=n[2]&&n[2]<=n[3]&&n[3]<=n[4]) {
-      n[0] = document.getElementById("a").value
-      n[1] = document.getElementById("b").value
-      n[2] = document.getElementById("c").value
-      n[3] = document.getElementById("d").value
-      n[4] = document.getElementById("e").value
+      n[0] = +document.getElementById("a").value
+      n[1] = +document.getElementById("b").value
+      n[2] = +document.getElementById("c").value
+      n[3] = +document.getElementById("d").value
+      n[4] = +document.getElementById("e").value
       it = 0
       i = 0
     }
