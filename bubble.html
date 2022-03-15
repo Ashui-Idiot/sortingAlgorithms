@@ -1,53 +1,140 @@
-<h1>bubbleSort Algorithm</h1>
-<a href=".\superSort.html">(Psst: Click me for superSort!)</a>
-<br><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a>
+<h1>bubbleSort Algorithm</h1><a href=".\superSort.html">(Psst: Click me for superSort sort!)</a><br><a
+  href=".\dubble.html">(Psst: Click me for bubbleSort!)</a>
 <br><a href=".\index.html">(Psst: Click me to go home!)</a>
-<p>Enter your numbers below. Bubble sort takes two number going and which ever <br>one is smallest, switches it then does the same one to the right.</p><br>
+<p>Enter your number. bubbleSort checks if the first number is bigger then the second number then switches them, then adds one and does it again.</p><br>
 <title>bubbleSort</title>
-
-<input type=number id="a"></input>
-<br>
-<input type=number id="b"></input>
-<br>
-<input type=number id="c"></input>
-<br>
-<input type=number id="d"></input>
-<br>
-<input type=number id="e"></input>
-<br><br><button id="but">Press me to run 1 itteration</button>
+<button id="button1">Press me to create a new array</button>
+<br><button id="button">Press me to run an itteration</button>
+<p>Starting Numbers: <span id=h>N/A</span></p>
 <p>Output: <span id="f">N/A</span></p>
 <p>Iterations: <span id="g">N/A</span></p>
+<canvas id="canvas1" width="100" hieght="150"></canvas>
+<canvas id="canvas2" width="100" hieght="150"></canvas>
+<canvas id="canvas3" width="100" hieght="150"></canvas>
+<canvas id="canvas4" width="100" hieght="150"></canvas>
+<canvas id="canvas5" width="100" hieght="150"></canvas>
 <script>
-      let n = [
-    1,2,3,4,5
+  function draw() {
+    let canvas1 = document.getElementById('canvas1');
+    if (canvas1.getContext) {
+      let context1 = canvas1.getContext('2d');
+      context1.clearRect(0, 0, 100, 150);
+      context1.fillRect(0, 150, 100, -n[0] * 25);
+      context1.strokeRect(45, 45, 0, 0);
+    }
+    let canvas2 = document.getElementById('canvas2');
+    if (canvas2.getContext) {
+      let context2 = canvas2.getContext('2d');
+      context2.clearRect(0, 0, 100, 150);
+      context2.fillRect(0, 150, 100, -n[1] * 25);
+      context2.strokeRect(45, 45, 0, 0);
+    }
+    let canvas3 = document.getElementById('canvas3');
+    if (canvas3.getContext) {
+      let context3 = canvas3.getContext('2d');
+      context3.clearRect(0, 0, 100, 150);
+      context3.fillRect(0, 150, 100, -n[2] * 25);
+      context3.strokeRect(45, 45, 0, 0);
+    }
+    let canvas4 = document.getElementById('canvas4');
+    if (canvas4.getContext) {
+      let context4 = canvas4.getContext('2d');
+      context4.clearRect(0, 0, 100, 150);
+      context4.fillRect(0, 150, 100, -n[3] * 25);
+      context4.strokeRect(45, 45, 0, 0);
+    }
+    let canvas5 = document.getElementById('canvas5');
+    if (canvas5.getContext) {
+      let context5 = canvas5.getContext('2d');
+      context5.clearRect(0, 0, 100, 150);
+      context5.fillRect(0, 150, 100, -n[4] * 25);
+      context5.strokeRect(45, 45, 0, 0);
+    }
+  }
+  let n = [
+    1, 2, 3, 4, 5
   ]
   let i = 0
   let it = 0
-  let l = 1000^100
+  let l = 1000 ^ 100
   let p = 0
+  let sort = true
   let f = 0
-  let g = 0
-  let pr = 0
-  document.getElementById("but").addEventListener("click", function() {
-   stuff()
-})
-  function stuff() {
-    if (n[0]<=n[1]&&n[1]<=n[2]&&n[2]<=n[3]&&n[3]<=n[4]) {
-      n[0] = +document.getElementById("a").value
-      n[1] = +document.getElementById("b").value
-      n[2] = +document.getElementById("c").value
-      n[3] = +document.getElementById("d").value
-      n[4] = +document.getElementById("e").value
-      it = 0
-      i = 0
-      l = 1000^100
-      p = 0
-      f = 0
-    }
-    sort(n)
-    console.log("button presses")
+  let g = n.length
+  let h = 0
+  let r = 0
+  let j = 0
+  let O = 0
+  let T = 1
+  let Th = 2
+  let F = 3
+  let Fi = 4
+  document.getElementById('button').addEventListener("click", function () {
+    stuff()
+  })
+  document.getElementById('button1').addEventListener("click", function () {
+    stuff2()
+  })
+  function stuff2() {
+    it = 0
+    i = 0
+    l = 1000 ^ 100
+    p = 0
+    sort = true
+    f = 0
+    g = 0
+    h = 0
+    O = 0
+    T = 1
+    Th = 2
+    F = 3
+    Fi = 4
+    r = 0
+    j = 0
+    randomArrayShuffle(n)
+    document.getElementById("h").innerHTML = n
+    document.getElementById("f").innerHTML = n
+    document.getElementById("g").innerHTML = it
+    draw()
   }
-  function sort(n) {
+  function randomArrayShuffle(n) {
+    while (j < 5) {
+      r = Math.floor(Math.random() * 5)
+      if (n[r] == 1) {
+        O = j
+      } else if (n[r] == 2) {
+        T = j
+      } else if (n[r] == 3) {
+        Th = j
+      } else if (n[r] == 4) {
+        F = j
+      } else if (n[r] == 5) {
+        Fi = j
+      }
+      if (n[j] == 1) {
+        O = r
+      } else if (n[j] == 2) {
+        T = r
+      } else if (n[j] == 3) {
+        Th = r
+      } else if (n[j] == 4) {
+        F = r
+      } else if (n[j] == 5) {
+        Fi = r
+      }
+      [n[j], n[r]] = [n[r], n[j]]
+      j += 1
+    }
+  }
+  function stuff() {
+    if (n[0] <= n[1] && n[1] <= n[2] && n[2] <= n[3] && n[3] <= n[4]) {
+      document.getElementById("f").innerHTML = n + " (That means its done!)"
+    } else {
+      console.log("in function 1")
+    bubble(n)
+    console.log("button presses")
+  }}
+  function bubble(n) {
       if (n[i]>n[i+1]) {
         [n[i+1],n[i]] = [n[i],n[i+1]]
       }
@@ -56,6 +143,7 @@
       if (i == 4) {
         i = 0
       }
+      draw()
     document.getElementById("f").innerHTML = n
     document.getElementById("g").innerHTML = it
   }
