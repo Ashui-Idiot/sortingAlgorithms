@@ -1,20 +1,20 @@
 <h1>superSort Algorithm</h1><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><p>Enter your number. superSort checks to see if any number is less then the one its on, and if so switches them, and if not it freezes it.</p><br>
 <title>superSort</title>
 
-<input type=number id="a"></input>
+<input type=number id="a">
 <br>
-<input type=number id="b"></input>
+<input type=number id="b">
 <br>
-<input type=number id="c"></input>
+<input type=number id="c">
 <br>
-<input type=number id="d"></input>
+<input type=number id="d">
 <br>
-<input type=number id="e"></input>
+<input type=number id="e">
 <br><br><button id="button">Press me to run 1 itteration</button>
 <p>Output: <span id="f">N/A</span></p>
 <p>Iterations: <span id="g">N/A</span></p>
 <script>
-      let n = [
+  let n = [
     1,2,3,4,5
   ]
   let i = 0
@@ -30,11 +30,11 @@
 })
   function stuff() {
     if (n[0]<=n[1]&&n[1]<=n[2]&&n[2]<=n[3]&&n[3]<=n[4]) {
-      n[0] = document.getElementById("a").value
-      n[1] = document.getElementById("b").value
-      n[2] = document.getElementById("c").value
-      n[3] = document.getElementById("d").value
-      n[4] = document.getElementById("e").value
+      n[0] = +document.getElementById("a").value
+      n[1] = +document.getElementById("b").value
+      n[2] = +document.getElementById("c").value
+      n[3] = +document.getElementById("d").value
+      n[4] = +document.getElementById("e").value
       it = 0
       i = 0
       l = 1000^100
@@ -49,14 +49,11 @@
   }
   function lowestSort(n) {
       console.log("in function 2")
-      l = n[i]
-      p = i
       sort = true
      	while (g<=n.length && sort==true) {
       console.log("in while loop")
-      if (l>n[g]&&g>=f) {
-			 [n[p],n[g]]=[n[g],n[p]]
-       p = g
+      if (n[i]>n[g]&&g>=f) {
+			 [n[i],n[g]]=[n[g],n[i]]
        console.log(g)
        sort = false
       } else {
@@ -68,7 +65,6 @@
       g=0
       i+=1
       it+=1
-      h = 0
       if (i == 4) {
         i = 0
       }
