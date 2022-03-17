@@ -1,16 +1,7 @@
-<head><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87DMZ75VF2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-87DMZ75VF2');
-</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9996077411284605"
-     crossorigin="anonymous"></script></head><h1>superSort Algorithm</h1><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><br><a href=".\index.html">(Psst: Click me to go home!)</a><p>Enter your number. superSort checks to see if any number is less then the one its on, and if so switches them, and if not it freezes it.</p><br>
+<h1>superSort Algorithm</h1><a href=".\dubble.html">(Psst: Click me for dubble sort!)</a><br><a href=".\bubble.html">(Psst: Click me for bubble sort!)</a><br><a href=".\index.html">(Psst: Click me to go home!)</a><p>Enter your number. superSort checks to see if any number is less then the one its on, and if so switches them, and if not it freezes it.</p><br>
 <title>superSort</title>
 <button id="button1">Press me to create a new array</button>
-<br><button id="button">Press me to run it!</button>
+<br><button id="button">Press me to run an itteration</button>
 <p>Starting Numbers: <span id=h>N/A</span></p>
 <p>Output: <span id="f">N/A</span></p>
 <p>Iterations: <span id="g">N/A</span></p>
@@ -38,23 +29,6 @@
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
-	var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-
-function playNote(frequency, duration) {
-  // create Oscillator node
-  var oscillator = audioCtx.createOscillator();
-
-  oscillator.type = 'square';
-  oscillator.frequency.value = frequency; // value in hertz
-  oscillator.connect(audioCtx.destination);
-  oscillator.start();
-
-  setTimeout(
-    function() {
-      oscillator.stop();
-    }, duration);
-}
-
   function draw() {
     let canvas1 = document.getElementById('canvas1');
     if (canvas1.getContext) {
@@ -333,7 +307,6 @@ function playNote(frequency, duration) {
     h = 0
     r = 0
     j = 0
-		O = 0
     k = true
     randomArrayShuffle(n)
     document.getElementById("h").innerHTML = n
@@ -364,6 +337,7 @@ function playNote(frequency, duration) {
    }
   function superSort(n) {
       while (g<20 && k) {
+      console.log(i)
       if (n[i]>n[g]&&g>f) {
 			  [n[i],n[g]]=[n[g],n[i]]
         k = false
@@ -373,17 +347,17 @@ function playNote(frequency, duration) {
       g++;
       }
       k=true
+      console.log(g)
       draw()
       g=0
       i++;
-			playNote(n[i]*100, 25)
       it++;
       if (i == 19) {
         i = 0
       }
     sleep(25)
       .then(() => console.log(n))
-      .then(() => { if (n[0] < n[1] && n[1] < n[2] && n[2] < n[3] && n[3] < n[4] && n[4] < n[5] && n[5] < n[6] && n[6] < n[7] && n[7] < n[8] && n[8] < n[9] && n[9] < n[10] && n[10] < n[11] && n[11] < n[12] && n[12] < n[13] && n[13] < n[14] && n[14] < n[15] && n[15] < n[16] && n[16] < n[17] && n[17] < n[18] && n[18] < n[19]) { sort = false;})
+      .then(() => { if (n[0] < n[1] && n[1] < n[2] && n[2] < n[3] && n[3] < n[4] && n[4] < n[5] && n[5] < n[6] && n[6] < n[7] && n[7] < n[8] && n[8] < n[9] && n[9] < n[10] && n[10] < n[11] && n[11] < n[12] && n[12] < n[13] && n[13] < n[14] && n[14] < n[15] && n[15] < n[16] && n[16] < n[17] && n[17] < n[18] && n[18] < n[19]) { sort = false } })
       .then(() => { if (sort == true) { superSort(n) } })
       .then(() => document.getElementById("f").innerHTML = n)
       .then(() => document.getElementById("g").innerHTML = it)
