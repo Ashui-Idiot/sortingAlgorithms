@@ -29,6 +29,23 @@
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+	var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+
+function playNote(frequency, duration) {
+  // create Oscillator node
+  var oscillator = audioCtx.createOscillator();
+
+  oscillator.type = 'square';
+  oscillator.frequency.value = frequency; // value in hertz
+  oscillator.connect(audioCtx.destination);
+  oscillator.start();
+
+  setTimeout(
+    function() {
+      oscillator.stop();
+    }, duration);
+}
+
   function draw() {
     let canvas1 = document.getElementById('canvas1');
     if (canvas1.getContext) {
@@ -307,6 +324,7 @@
     h = 0
     r = 0
     j = 0
+		O = 0
     k = true
     randomArrayShuffle(n)
     document.getElementById("h").innerHTML = n
@@ -337,7 +355,6 @@
    }
   function superSort(n) {
       while (g<20 && k) {
-      console.log(i)
       if (n[i]>n[g]&&g>f) {
 			  [n[i],n[g]]=[n[g],n[i]]
         k = false
@@ -347,17 +364,17 @@
       g++;
       }
       k=true
-      console.log(g)
       draw()
       g=0
       i++;
+			playNote(n[i]*100, 25)
       it++;
       if (i == 19) {
         i = 0
       }
     sleep(25)
       .then(() => console.log(n))
-      .then(() => { if (n[0] < n[1] && n[1] < n[2] && n[2] < n[3] && n[3] < n[4] && n[4] < n[5] && n[5] < n[6] && n[6] < n[7] && n[7] < n[8] && n[8] < n[9] && n[9] < n[10] && n[10] < n[11] && n[11] < n[12] && n[12] < n[13] && n[13] < n[14] && n[14] < n[15] && n[15] < n[16] && n[16] < n[17] && n[17] < n[18] && n[18] < n[19]) { sort = false } })
+      .then(() => { if (n[0] < n[1] && n[1] < n[2] && n[2] < n[3] && n[3] < n[4] && n[4] < n[5] && n[5] < n[6] && n[6] < n[7] && n[7] < n[8] && n[8] < n[9] && n[9] < n[10] && n[10] < n[11] && n[11] < n[12] && n[12] < n[13] && n[13] < n[14] && n[14] < n[15] && n[15] < n[16] && n[16] < n[17] && n[17] < n[18] && n[18] < n[19]) { sort = false;})
       .then(() => { if (sort == true) { superSort(n) } })
       .then(() => document.getElementById("f").innerHTML = n)
       .then(() => document.getElementById("g").innerHTML = it)
